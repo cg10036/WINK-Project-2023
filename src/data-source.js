@@ -1,5 +1,5 @@
 const { DataSource } = require("typeorm");
-const config = require("./config");
+const config = require("./configs");
 
 module.exports = new DataSource({
   type: "mysql",
