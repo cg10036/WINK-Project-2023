@@ -13,9 +13,20 @@ module.exports = new EntitySchema({
     username: {
       unique: true,
       type: "varchar",
+      nullable: false,
     },
     password: {
       type: "varchar",
+      nullable: false,
+    },
+    name: {
+      type: "varchar",
+      nullable: false,
+    },
+    studentId: {
+      name: "student_id",
+      type: "varchar",
+      nullable: false,
     },
   },
 });
