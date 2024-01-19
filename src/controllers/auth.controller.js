@@ -13,10 +13,12 @@ const login = async (req, res, next) => {
 const registerValidator = makeValidator({
   username: ["string"],
   password: ["string"],
+  name: ["string"],
+  studentId: ["string"],
 });
 const register = async (req, res, next) => {
-  let { username, password } = registerValidator(req.body);
-  next(await authService.register(username, password));
+  let { username, password, name, studentId } = registerValidator(req.body);
+  next(await authService.register(username, password, name, studentId));
 };
 
 module.exports = {
