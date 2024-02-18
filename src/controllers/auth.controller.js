@@ -16,6 +16,7 @@ const registerValidator = makeValidator({
   name: ["string"],
   studentId: ["string"],
 });
+
 const register = async (req, res, next) => {
   let { username, password, name, studentId } = registerValidator(req.body);
   next(await authService.register(username, password, name, studentId));
