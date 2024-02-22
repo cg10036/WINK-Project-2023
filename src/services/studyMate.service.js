@@ -1,6 +1,5 @@
 const { HttpResponse } = require("../helpers/response.helper");
 const StudyMate = require("../models/studyMate.model");
-const studyMateRepository = require("../repositories/studyMate.repository");
 const StudyMateRepository = require("../repositories/studyMate.repository");
 
 const offer = async (
