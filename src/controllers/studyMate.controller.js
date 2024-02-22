@@ -6,12 +6,12 @@ const offerValidator = makeValidator({
   title: ["string"], //varchar
   place: ["string"], //text
   startAt: ["string"], //datetime
-  people: ["string"], //int
+  people: ["string"], //text
   condition: ["string"], //text
-  week: ["string"], //tinyint
+  week: ["number"], //tinyint
   timeStart: ["string"], //time
   timeEnd: ["string"], //time
-  period: ["string"], //int
+  period: ["number"], //int
   content: ["string"], //text
 });
 
@@ -48,6 +48,23 @@ const offer = async (req, res, next) => {
   );
 };
 
+const posts = async (req, res, next) => {
+  const page = req.query.page || 1; // 현재 페이지 번호 (기본값 : 1)
+  const limit = 10; // 페이지당 글 개수
+  const offset = limit * (page - 1);
+  const state = req.query.state || "최신순"; // 정렬 순서 결정
+
+  let focus = "";
+  if (state === "최신순") {
+    focus = "DESC";
+  } else {
+    focus = "ASC";
+  }
+
+  next(await studyMateService.posts(limit, offset, focus));
+};
+
 module.exports = {
   offer,
+  posts,
 };
