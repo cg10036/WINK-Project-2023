@@ -6,12 +6,12 @@ const offerValidator = makeValidator({
   title: ["string"], //varchar
   place: ["string"], //text
   startAt: ["string"], //datetime
-  people: ["string"], //int
+  people: ["string"], //text
   condition: ["string"], //text
-  week: ["string"], //tinyint
+  week: ["number"], //tinyint
   timeStart: ["string"], //time
   timeEnd: ["string"], //time
-  period: ["string"], //int
+  period: ["number"], //int
   content: ["string"], //text
 });
 
