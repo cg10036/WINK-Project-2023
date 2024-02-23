@@ -4,7 +4,7 @@ const config = require("./configs");
 module.exports = new DataSource({
   type: "mysql",
   synchronize: true,
-  logging: false,
+  logging: true,
   entities: ["./src/entities/*.js"],
   migrations: [],
   subscribers: [],

@@ -39,12 +39,15 @@ const offer = async (req, res, next) => {
       people,
       condition,
       week,
-      tim정
-
-  next(await studyMateService.posts(limit, offset, focus));
+      timeStart,
+      timeEnd,
+      period,
+      content,
+      createdAt
+    )
+  );
 };
 
 module.exports = {
   offer,
-  posts,
 };
