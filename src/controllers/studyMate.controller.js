@@ -48,6 +48,16 @@ const offer = async (req, res, next) => {
   );
 };
 
+const posts = async (req, res, next) => {
+  const page = req.query.page || 1; // 현재 페이지 번호 (기본값 : 1)
+  const limit = 10; // 페이지당 글 개수
+  const offset = limit * (page - 1);
+  const focus = req.query.state === "최신순" ? "DESC" : "ASC"; //정렬 순서
+
+  next(await studyMateService.posts(limit, offset, focus));
+};
+
 module.exports = {
   offer,
+  posts,
 };
