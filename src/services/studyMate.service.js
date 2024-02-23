@@ -39,6 +39,23 @@ const offer = async (
   return new HttpResponse(201, "OFFER_SUCCESS");
 };
 
+const posts = async (limit, offset, focus) => {
+  try {
+    return new HttpResponse(
+      201,
+      await studyMateRepository
+        .createQueryBuilder("StudyMate")
+        .limit(limit)
+        .offset(offset)
+        .orderBy("created_at", focus)
+        .getMany()
+    );
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports = {
   offer,
+  posts,
 };
