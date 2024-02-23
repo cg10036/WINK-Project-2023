@@ -52,14 +52,7 @@ const posts = async (req, res, next) => {
   const page = req.query.page || 1; // 현재 페이지 번호 (기본값 : 1)
   const limit = 10; // 페이지당 글 개수
   const offset = limit * (page - 1);
-  const state = req.query.state || "최신순"; // 정렬 순서 결정
-
-  let focus = "";
-  if (state === "최신순") {
-    focus = "DESC";
-  } else {
-    focus = "ASC";
-  }
+  const focus = req.query.state === "최신순" ? "DESC" : "ASC"; //정렬 순서
 
   next(await studyMateService.posts(limit, offset, focus));
 };
