@@ -42,7 +42,7 @@ const offer = async (
 const posts = async (limit, offset, focus) => {
   try {
     return new HttpResponse(
-      201,
+      200,
 
       await StudyMateRepository.createQueryBuilder("StudyMate")
 
@@ -59,7 +59,7 @@ const posts = async (limit, offset, focus) => {
 const detail = async (id) => {
   try {
     return new HttpResponse(
-      201,
+      200,
       await StudyMateRepository.findOne({
         where: {
           id,
