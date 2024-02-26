@@ -43,7 +43,7 @@ const posts = async (limit, offset, focus) => {
   try {
     return new HttpResponse(
       201,
-      await studyMateRepository
+      await StudyMateRepository
         .createQueryBuilder("StudyMate")
         .limit(limit)
         .offset(offset)
