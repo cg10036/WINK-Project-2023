@@ -43,8 +43,7 @@ const posts = async (limit, offset, focus) => {
   try {
     return new HttpResponse(
       201,
-      await studyMateRepository
-        .createQueryBuilder("StudyMate")
+      await StudyMateRepository.createQueryBuilder("StudyMate")
         .limit(limit)
         .offset(offset)
         .orderBy("created_at", focus)
@@ -55,7 +54,23 @@ const posts = async (limit, offset, focus) => {
   }
 };
 
+const detail = async (id) => {
+  try {
+    return new HttpResponse(
+      201,
+      await StudyMateRepository.findOne({
+        where: {
+          id,
+        },
+      })
+    );
+  } catch (err) {
+    throw err;
+  }
+};
+
 module.exports = {
   offer,
   posts,
+  detail,
 };
