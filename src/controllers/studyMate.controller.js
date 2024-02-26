@@ -57,7 +57,13 @@ const posts = async (req, res, next) => {
   next(await studyMateService.posts(limit, offset, focus));
 };
 
+const detail = async (req, res, next) => {
+  const id = req.query.id;
+  next(await studyMateService.detail(id));
+};
+
 module.exports = {
   offer,
   posts,
+  detail,
 };
