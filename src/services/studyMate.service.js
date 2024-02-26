@@ -43,7 +43,9 @@ const posts = async (limit, offset, focus) => {
   try {
     return new HttpResponse(
       201,
+
       await StudyMateRepository.createQueryBuilder("StudyMate")
+
         .limit(limit)
         .offset(offset)
         .orderBy("created_at", focus)
