@@ -1,6 +1,7 @@
 const { HttpResponse } = require("../helpers/response.helper");
 const StudyMate = require("../models/studyMate.model");
 const StudyMateRepository = require("../repositories/studyMate.repository");
+const { Like } = require("typeorm");
 
 const offer = async (
   userId,
@@ -39,13 +40,13 @@ const offer = async (
   return new HttpResponse(201, "OFFER_SUCCESS");
 };
 
-const posts = async (limit, offset, focus) => {
+const posts = async (limit, offset, focus, search) => {
   try {
     return new HttpResponse(
       200,
 
       await StudyMateRepository.createQueryBuilder("StudyMate")
-
+        .where(search === "" ? {} : { title: Like(`%${search}%`) })
         .limit(limit)
         .offset(offset)
         .orderBy("created_at", focus)

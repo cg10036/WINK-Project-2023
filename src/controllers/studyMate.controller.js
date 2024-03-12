@@ -53,8 +53,9 @@ const posts = async (req, res, next) => {
   const limit = 10; // 페이지당 글 개수
   const offset = limit * (page - 1);
   const focus = req.query.state === "오래된순" ? "ASC" : "DESC"; //정렬 순서
+  const search = req.query.search;
 
-  next(await studyMateService.posts(limit, offset, focus));
+  next(await studyMateService.posts(limit, offset, focus, search));
 };
 
 const detail = async (req, res, next) => {
