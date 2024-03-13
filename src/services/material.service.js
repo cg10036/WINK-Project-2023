@@ -79,17 +79,17 @@ const detail = async (id) => {
 };
 
 const pdf = async (res, id) => {
-  let { file } = await MaterialRepository.findOne({
+  let material = await MaterialRepository.findOne({
     where: {
       id,
     },
     select: ["file"],
   });
-  if (!file || !id) {
+  if (!id || !material || !material.file) {
     return res.status(404).send("File not found");
   }
   res.setHeader("Content-Type", "application/pdf");
-  return res.send(Buffer.from(file, "base64"));
+  return res.send(Buffer.from(material.file, "base64"));
 };
 
 module.exports = {
