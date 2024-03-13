@@ -34,6 +34,9 @@ const posts = async () => {
       order: {
         createdAt: "DESC",
       },
+      select: {
+        file: false,
+      },
     })
   );
 };
