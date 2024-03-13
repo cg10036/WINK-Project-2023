@@ -6,7 +6,7 @@ const info = async (userId) => {
   let user = await UserRepository.findOneBy({ id: userId });
   let data = await MaterialRepository.findBy({ userId });
   let studymate = await StudyMateRepository.findBy({ userId });
-  return { user, data, studymate };
+  return new HttpResponse(200, { user, data, studymate });
 };
 
 module.exports = {
