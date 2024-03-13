@@ -42,7 +42,7 @@ module.exports = new EntitySchema({
     },
 
     week: {
-      type: "tinyint",
+      type: "text",
       nullable: false,
     },
 

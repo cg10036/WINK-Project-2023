@@ -7,7 +7,7 @@ const offerValidator = makeValidator({
   startAt: ["string"], //datetime
   people: ["string"], //text
   condition: ["string"], //text
-  week: ["number"], //tinyint
+  week: ["string"], //tinyint
   timeStart: ["string"], //time
   timeEnd: ["string"], //time
   period: ["number"], //int
