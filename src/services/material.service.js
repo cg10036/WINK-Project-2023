@@ -46,6 +46,7 @@ const posts = async () => {
         "type",
         "keyword",
         "note",
+        "semester",
       ],
     })
   );
