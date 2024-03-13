@@ -34,9 +34,17 @@ const posts = async () => {
       order: {
         createdAt: "DESC",
       },
-      select: {
-        file: false,
-      },
+      select: [
+        "id",
+        "createdAt",
+        "userId",
+        "professor",
+        "title",
+        "content",
+        "type",
+        "keyword",
+        "note",
+      ],
     })
   );
 };
