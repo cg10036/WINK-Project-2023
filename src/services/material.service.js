@@ -86,8 +86,11 @@ const pdf = async (res, id) => {
     },
     select: ["file"],
   });
+  if (!file) {
+    return res.status(404).send("File not found");
+  }
   res.setHeader("Content-Type", "application/pdf");
-  res.send(base64.decode(file));
+  return res.send(base64.decode(file));
 };
 
 module.exports = {
