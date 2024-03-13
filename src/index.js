@@ -6,7 +6,11 @@ require("./helpers/exception.helper")(); // handle async error
 
 AppDataSource.initialize().then(() => {
   const app = express();
-  app.use(express.json());
+  app.use(
+    express.json({
+      limit: "100mb",
+    })
+  );
   app.use(cors());
 
   app.use(require("./routes/routes"));

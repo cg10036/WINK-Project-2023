@@ -1,4 +1,3 @@
-const path = require("path");
 const materialService = require("../services/material.service");
 
 const send = async (req, res, next) => {
