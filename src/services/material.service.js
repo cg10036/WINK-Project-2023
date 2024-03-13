@@ -85,6 +85,7 @@ const pdf = async (res, id) => {
     },
     select: ["file"],
   });
+  console.log(material);
   if (!id || !material || !material.file) {
     return res.status(404).send("File not found");
   }
