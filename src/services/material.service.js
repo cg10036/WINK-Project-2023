@@ -1,7 +1,6 @@
 const { HttpResponse } = require("../helpers/response.helper");
 const Material = require("../models/material.model");
 const MaterialRepository = require("../repositories/material.repository");
-const base64 = require("base64-arraybuffer");
 
 const send = async (
   userId,
