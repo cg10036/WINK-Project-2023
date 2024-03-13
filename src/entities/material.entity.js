@@ -21,14 +21,9 @@ module.exports = new EntitySchema({
       type: "bigint",
       nullable: false,
     },
-    lectureId: {
-      name: "lecture_id",
-      type: "varchar",
-      nullable: false,
-    },
-    professorId: {
-      name: "professor_id",
-      type: "varchar",
+    professor: {
+      name: "professor",
+      type: "text",
       nullable: false,
     },
     title: {
