@@ -35,7 +35,7 @@ module.exports = new EntitySchema({
       nullable: false,
     },
     file: {
-      type: "varchar",
+      type: "longtext",
       nullable: true,
     },
     type: {
