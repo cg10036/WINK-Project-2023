@@ -27,7 +27,7 @@ module.exports = new EntitySchema({
     },
     startAt: {
       name: "start_at",
-      type: "datetime",
+      type: "text",
       nullable: false,
     },
 
@@ -42,7 +42,7 @@ module.exports = new EntitySchema({
     },
 
     week: {
-      type: "tinyint",
+      type: "text",
       nullable: false,
     },
 
