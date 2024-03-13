@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const authHelper = require("../helpers/auth.helper");
 const materialController = require("../controllers/material.controller");
 
 router.get("/pdf", materialController.pdf);
