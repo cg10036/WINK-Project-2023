@@ -22,7 +22,19 @@ const posts = async (req, res, next) => {
   return next(await materialService.posts());
 };
 
+const detail = async (req, res, next) => {
+  let { id } = req.query;
+  return next(await materialService.detail(id));
+};
+
+const pdf = async (req, res, next) => {
+  const { id } = req.query;
+  await materialService.pdf(res, id);
+};
+
 module.exports = {
   send,
   posts,
+  detail,
+  pdf,
 };

@@ -1,6 +1,7 @@
 const { HttpResponse } = require("../helpers/response.helper");
 const Material = require("../models/material.model");
 const MaterialRepository = require("../repositories/material.repository");
+const base64 = require("base64-arraybuffer");
 
 const send = async (
   userId,
@@ -52,7 +53,46 @@ const posts = async () => {
   );
 };
 
+const detail = async (id) => {
+  return new HttpResponse(
+    200,
+    await MaterialRepository.findOne({
+      order: {
+        createdAt: "DESC",
+      },
+      select: [
+        "id",
+        "createdAt",
+        "userId",
+        "professor",
+        "title",
+        "content",
+        "type",
+        "keyword",
+        "note",
+        "semester",
+      ],
+      where: {
+        id,
+      },
+    })
+  );
+};
+
+const pdf = async (res, id) => {
+  let { file } = await MaterialRepository.findOne({
+    where: {
+      id,
+    },
+    select: ["file"],
+  });
+  res.setHeader("Content-Type", "application/pdf");
+  res.send(base64.decode(file));
+};
+
 module.exports = {
   send,
   posts,
+  detail,
+  pdf,
 };
