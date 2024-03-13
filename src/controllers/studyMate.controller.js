@@ -26,7 +26,6 @@ const offer = async (req, res, next) => {
     timeEnd,
     period,
     content,
-    createdAt,
   } = offerValidator(req.body);
   next(
     await studyMateService.offer(
@@ -40,8 +39,7 @@ const offer = async (req, res, next) => {
       timeStart,
       timeEnd,
       period,
-      content,
-      createdAt
+      content
     )
   );
 };
