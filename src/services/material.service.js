@@ -10,7 +10,8 @@ const send = async (
   professor,
   type,
   keyword,
-  note
+  note,
+  semester
 ) => {
   let material = new Material();
   material.userId = userId;
@@ -21,6 +22,7 @@ const send = async (
   material.type = type;
   material.keyword = keyword;
   material.note = note;
+  material.semester = semester;
 
   await MaterialRepository.save(material);
 

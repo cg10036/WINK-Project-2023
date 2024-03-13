@@ -9,7 +9,8 @@ module.exports = class Material {
     file,
     type,
     keyword,
-    note
+    note,
+    semester
   ) {
     this.id = id;
     this.createdAt = createdAt;
@@ -21,5 +22,6 @@ module.exports = class Material {
     this.type = type;
     this.keyword = keyword;
     this.note = note;
+    this.semester = semester;
   }
 };

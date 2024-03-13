@@ -44,11 +44,15 @@ module.exports = new EntitySchema({
     },
     keyword: {
       type: "text",
-      nullable: true,
+      nullable: false,
     },
     note: {
       type: "text",
-      nullable: true,
+      nullable: false,
+    },
+    semester: {
+      type: "text",
+      nullable: false,
     },
   },
 });

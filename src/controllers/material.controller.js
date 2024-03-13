@@ -1,7 +1,8 @@
 const materialService = require("../services/material.service");
 
 const send = async (req, res, next) => {
-  const { title, content, file, professor, type, keyword, note } = req.body;
+  const { title, content, file, professor, type, keyword, note, semester } =
+    req.body;
   return next(
     await materialService.send(
       req.user.id,
@@ -11,7 +12,8 @@ const send = async (req, res, next) => {
       professor,
       type,
       keyword,
-      note
+      note,
+      semester
     )
   );
 };
