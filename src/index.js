@@ -1,4 +1,5 @@
 const typeorm = require("typeorm");
+const multer = require("multer");
 const express = require("express");
 const cors = require("cors");
 const AppDataSource = require("./data-source");
