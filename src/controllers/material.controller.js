@@ -16,6 +16,11 @@ const send = async (req, res, next) => {
   );
 };
 
+const posts = async (req, res, next) => {
+  return next(await materialService.posts());
+};
+
 module.exports = {
   send,
+  posts,
 };

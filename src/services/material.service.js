@@ -27,6 +27,15 @@ const send = async (
   return new HttpResponse(201, "UPLOAD_SUCCESS");
 };
 
+const posts = async () => {
+  return await MaterialRepository.find({
+    order: {
+      createdAt: "DESC",
+    },
+  });
+};
+
 module.exports = {
   send,
+  posts,
 };
