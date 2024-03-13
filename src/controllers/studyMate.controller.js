@@ -2,7 +2,6 @@ const studyMateService = require("../services/studyMate.service");
 const { makeValidator } = require("../helpers/request.helper");
 
 const offerValidator = makeValidator({
-  userId: ["string"], //bigint
   title: ["string"], //varchar
   place: ["string"], //text
   startAt: ["string"], //datetime
@@ -17,7 +16,6 @@ const offerValidator = makeValidator({
 
 const offer = async (req, res, next) => {
   let {
-    userId,
     title,
     place,
     startAt,
@@ -32,7 +30,7 @@ const offer = async (req, res, next) => {
   } = offerValidator(req.body);
   next(
     await studyMateService.offer(
-      userId,
+      req.user.id,
       title,
       place,
       startAt,
