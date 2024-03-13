@@ -28,11 +28,14 @@ const send = async (
 };
 
 const posts = async () => {
-  return await MaterialRepository.find({
-    order: {
-      createdAt: "DESC",
-    },
-  });
+  return new HttpResponse(
+    200,
+    await MaterialRepository.find({
+      order: {
+        createdAt: "DESC",
+      },
+    })
+  );
 };
 
 module.exports = {
