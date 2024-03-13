@@ -38,5 +38,17 @@ module.exports = new EntitySchema({
       type: "varchar",
       nullable: true,
     },
+    type: {
+      type: "text",
+      nullable: false,
+    },
+    keyword: {
+      type: "text",
+      nullable: true,
+    },
+    note: {
+      type: "text",
+      nullable: true,
+    },
   },
 });
