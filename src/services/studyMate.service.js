@@ -47,8 +47,8 @@ const posts = async (limit, offset, focus, search) => {
 
       await StudyMateRepository.createQueryBuilder("StudyMate")
         .where(search === "" ? {} : { title: Like(`%${search}%`) })
-        .limit(limit)
-        .offset(offset)
+        // .limit(limit)
+        // .offset(offset)
         .orderBy("created_at", focus)
         .getMany()
     );
