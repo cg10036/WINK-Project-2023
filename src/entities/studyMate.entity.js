@@ -48,13 +48,13 @@ module.exports = new EntitySchema({
 
     timeStart: {
       name: "time_start",
-      type: "time",
+      type: "text",
       nullable: false,
     },
 
     timeEnd: {
       name: "time_end",
-      type: "time",
+      type: "text",
       nullable: false,
     },
 
